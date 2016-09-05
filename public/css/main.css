@@ -1,0 +1,43 @@
+body{
+    background: #e0e0e0;
+}
+
+.side-nav a{
+    color: #fff;
+}
+.side-nav-top{
+    border-bottom: solid 1px #0288d1;
+}
+
+.big-title{
+    font-size:30px;
+}
+
+.main{
+    margin-left:260px;
+}
+
+.nav-wrapper{
+    margin-left:250px;
+}
+
+.form-container{
+    margin-top:20px;
+}
+
+.step-container{
+    margin-left:10px;
+    width:960px;
+}
+
+.show-number{
+    display:none;
+}
+.final{
+display:flex;
+flex-wrap:wrap;
+}
+.final-list{
+    margin:10px;
+    width:30%;
+}
