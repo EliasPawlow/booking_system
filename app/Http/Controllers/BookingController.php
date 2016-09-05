@@ -16,8 +16,8 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $bookings = DB::table('bookings')->get();
-        
+        $bookings = DB::table('bookings')->orderBy('date','ASC')->get();
+       
 
         return view('bookings.index', ['bookings' => $bookings]);
 
@@ -43,11 +43,18 @@ class BookingController extends Controller
     public function store(Request $request)
     {
          $input = $request->all();
-        return view("test", ['inputs' => $input]);
 
-        // Booking::create($input);
-
-        // return redirect()->back();
+        for($x = 0; $x < sizeof($request->weeks); $x++) {
+            Booking::create([
+                'customer_id' => $request->customer_id,
+                'facility_id' => $request->facility_id,
+                'time_in' => $request->time_in,
+                'time_out' => $request->time_out,
+                'date' => $request->weeks[$x],
+                'frequency' => $request->frequency
+              ]);
+        }
+         return redirect()->back();
     }
 
     /**

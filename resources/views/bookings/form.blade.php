@@ -82,16 +82,17 @@
           $('#modal1').openModal();
         let datepicker = $('.datepicker').val();
         let date = moment(datepicker);
-        let pretty = date.format('MMMM Do YYYY');
+        let pretty = date.format('L');
+        let test = date.format()
 
         $('.final').html('');
-            $('.final').append('<li class="final-list"><input type="checkbox" class="filled-in" id="'+ pretty +'" checked="checked" /><label for="'+pretty+'">'+ pretty +'</label></li>')
+            $('.final').append('<input name="weeks[]" type="checkbox"  value="'+date.format("YYYY-MM-DD")+'" class="filled-in" id="'+ pretty +'" checked="checked" /> <label for="'+ pretty +'">'+ pretty +'</label>')
         
         for(var i = 0; i<$('.number').val(); i++){
             let workout =  date.add(7, 'd');
             date = workout;
-            pretty = workout.format('MMMM Do YYYY')
-            $('.final').append('{!! Form::text("phone", null, ["class" => "validate"]) !!}')
+            pretty = workout.format('L') 
+            $('.final').append('<input name="weeks[]" type="checkbox"  value="'+workout.format("YYYY-MM-DD")+'" class="filled-in" id="'+ pretty +'" checked="checked" /> <label for="'+ pretty +'">'+ pretty +'</label>')
         }
     }   
                 
